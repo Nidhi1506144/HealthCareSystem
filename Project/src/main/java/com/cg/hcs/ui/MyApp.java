@@ -2,11 +2,15 @@ package com.cg.hcs.ui;
 
 import java.util.Scanner;
 
+import com.cg.hcs.dto.DiagnosticCenter;
 import com.cg.hcs.dto.User;
+import com.cg.hcs.service.DiagnosticCenterService;
+import com.cg.hcs.service.DiagnosticCenterServiceImpl;
 
 public class MyApp {
 
 	public static void main(String[] args) {
+		DiagnosticCenterService centerservice=new DiagnosticCenterServiceImpl();
 		int userRole=0,adminChoice=0,userChoice=0;
 		while(userRole!=3)
 		{
@@ -27,13 +31,15 @@ public class MyApp {
 				  	case 1:
 				  		System.out.println("Enter the name of the center:");
 				  		String centerName = sc.next();
-				  		
+				  		DiagnosticCenter center=new DiagnosticCenter(centerName);
+				  		centerservice.addDiagnosticCenter(center);
 				  		break;
 				  	case 2:
 				  		break;
 				  	case 3:
 				  		break;
 				  	case 4:
+				  		
 				  		break;
 				  	case 5:
 				  		break;

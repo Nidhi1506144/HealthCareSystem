@@ -1,27 +1,27 @@
 package com.cg.hcs.dto;
 
-public class Test<T>{
-	private T testId;
+public class Test{
+	private static Integer testCounter=0;
+	private static final String prefix="Test";
+	private String testId;
 	private String testName;
-	private DiagnosticCenter center;
 	
 	public Test()
-	{
-		
+	{	
 	}
 
-	Test(T testId, String testName, DiagnosticCenter center) {
+	Test(String testName) {
 		super();
-		this.testId = testId;
 		this.testName = testName;
-		this.center = center;
+		testCounter++;
+		setTestId(prefix + testCounter.toString());
 	}
 	
-	public T getTestId() {
+	public String getTestId() {
 		return testId;
 	}
 
-	public void setTestId(T testId) {
+	public void setTestId(String testId) {
 		this.testId = testId;
 	}
 
@@ -33,24 +33,16 @@ public class Test<T>{
 		this.testName = testName;
 	}
 
-	public DiagnosticCenter getCenter() {
-		return center;
-	}
-
-	public void setCenter(DiagnosticCenter center) {
-		this.center = center;
-	}
 
 	@Override
 	public String toString() {
-		return "Test [testId=" + testId + ", testName=" + testName + ", center=" + center + "]";
+		return "Test [testId=" + testId + ", testName=" + testName + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((center == null) ? 0 : center.hashCode());
 		result = prime * result + ((testId == null) ? 0 : testId.hashCode());
 		result = prime * result + ((testName == null) ? 0 : testName.hashCode());
 		return result;
@@ -65,11 +57,6 @@ public class Test<T>{
 		if (getClass() != obj.getClass())
 			return false;
 		Test other = (Test) obj;
-		if (center == null) {
-			if (other.center != null)
-				return false;
-		} else if (!center.equals(other.center))
-			return false;
 		if (testId == null) {
 			if (other.testId != null)
 				return false;

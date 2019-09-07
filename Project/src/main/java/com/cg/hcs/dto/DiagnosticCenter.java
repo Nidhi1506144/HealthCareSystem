@@ -52,8 +52,13 @@ public class DiagnosticCenter<T> {
 		super();
 		this.centerName = centerName;
 		centerCounter++;
-		
-		
+		setCenterId(prefix + centerCounter.toString());
+		Test t1 = new Test("Blood Group");
+		Test t2=new Test("Blood Sugar");
+		Test t3=new Test("Blood Pressure");
+		this.listOfTests.add(t1);
+		this.listOfTests.add(t2);
+		this.listOfTests.add(t3);
 		
 		
 		this.listOfAppointments = null;
