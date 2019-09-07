@@ -3,8 +3,10 @@ package com.cg.hcs.dto;
 import java.util.List;
 
 public class DiagnosticCenter<T> {
+	private static Integer centerCounter=0;
+	private static final String prefix = "HSC";
 	private String centerName;
-	private T centerId;
+	private String centerId;
 	private List<Test> listOfTests;
 	private List<Appointment> listOfAppointments;
 	
@@ -18,15 +20,16 @@ public class DiagnosticCenter<T> {
 	}
 
 	public void setCenterName(String centerName) {
-		this.centerName = centerName;
+		
+		this.centerName = centerName ;
 	}
 
-	public T getCenterId() {
+	public String getCenterId() {
 		return centerId;
 	}
 
-	public void setCenterId(T centerId) {
-		this.centerId = centerId;
+	public void setCenterId(String centerId) {
+		this.centerId=centerId;
 	}
 
 	public List<Test> getListOfTests() {
@@ -45,13 +48,15 @@ public class DiagnosticCenter<T> {
 		this.listOfAppointments = listOfAppointments;
 	}
 
-	public DiagnosticCenter(String centerName, T centerId, List<Test> listOfTests,
-			List<Appointment> listOfAppointments) {
+	public DiagnosticCenter(String centerName) {
 		super();
 		this.centerName = centerName;
-		this.centerId = centerId;
-		this.listOfTests = listOfTests;
-		this.listOfAppointments = listOfAppointments;
+		centerCounter++;
+		
+		
+		
+		
+		this.listOfAppointments = null;
 	}
 	
 	@Override
