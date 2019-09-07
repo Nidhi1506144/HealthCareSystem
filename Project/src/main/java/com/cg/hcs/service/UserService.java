@@ -12,6 +12,6 @@ public interface UserService {
 	public void updateTest(Test test);
 	public void removeTest(Test test);
 	public void approveAppointment();
-	public String makeAppointment(User user,Diagnostic center,Test test,String datetime);
+	public String makeAppointment(User user,DiagnosticCenter center,Test test,String datetime);
 	public void showDetails(User user);
 }
